@@ -66,5 +66,9 @@ public class Person {
 		System.out.print(">메뉴번호:");
 	}
 	
+	public String addinfo() {
+		return name + "," + hp + "," + company;
+	}
+	
 
 }
