@@ -44,9 +44,13 @@ public class PersonApp {
 		    	System.out.println("<1.리스트>");
 		    	
 		    	//List<Person> pList = new ArrayList<Person>();
-		    	
+
 		    	Reader fr = new FileReader("D:\\javaStudy\\file\\miniproject\\PhoneDB.txt");
 		    	BufferedReader br = new BufferedReader(fr);
+		    	
+		    	for(int i=0; i<pList.size();i++) {
+		    		pList.remove(i);
+		    	}
 		    	
 		    	while(true) {
 		    		String line = br.readLine();
@@ -58,7 +62,11 @@ public class PersonApp {
 		    		pList.add(p01);
 		    			
 		    	}
-		    	
+		    	/*
+		    	for(int i=0; i<pList.size();i++) {
+		    		pList.remove(i);
+		    	}
+		    	*/
 		    	int count = 0;
 		    	for(int i=0; i<pList.size(); i++) {
 		    	    count=count+1;
@@ -111,7 +119,7 @@ public class PersonApp {
 		    case 3:
 		    	System.out.println("<3.삭제>");
 		    	System.out.print(">번호 : ");
-		    	
+		    	/*
 		    	Reader rfr = new FileReader("D:\\javaStudy\\file\\miniproject\\PhoneDB.txt");
 		    	BufferedReader rbr = new BufferedReader(rfr);
 		    	
@@ -125,34 +133,30 @@ public class PersonApp {
 		    		pList.add(p01);
 		    		
 		    	}
-
+                */
 		    	Scanner ic = new Scanner(System.in);
 		    	int removeNum = ic.nextInt();
 		    	removeNum = removeNum-1;
 		    	pList.remove(removeNum);
 		    	
 		    	System.out.println("[삭제되었습니다.]");
-		    	
+		    	/*삭제 후 pList 목록 확인용 출력
+		    	int count2 = 0;
+		    	for(int i=0; i<pList.size(); i++) {
+		    	    count2=count2+1;
+		    		System.out.println(count2+"."+"  "+pList.get(i).getName()+"   "+pList.get(i).getHp()+"   "+pList.get(i).getCompany());
+		    	}
+		    	*/
 		    	Writer rfw = new FileWriter("D:\\javaStudy\\file\\miniproject\\PhoneDB.txt");
 		    	BufferedWriter rbw = new BufferedWriter(rfw);
 		    	
-		    	/*
-		    	for(int i=0; i<pList.size();i++) {
-		    	System.out.println(pList.get(i).getName()+"   "+pList.get(i).getHp()+"   "+pList.get(i).getCompany());
-		    	}
-		    	*/
-		    	
-		    	for(int i=0; i<pList.size();i++) {
+		    	for(int i=0; i<pList.size();i++) { 
 		    	rbw.write(pList.get(i).addinfo());
 		    	rbw.newLine();
-		    	/*
-		    	rbw.write(pList.get(i).getName()); 
-		    	rbw.write(pList.get(i).getHp());
-		    	rbw.write(pList.get(i).getCompany());
-		    	*/
+		    	
 		    	}
 		    	
-		    	rbr.close();
+		    	//rbr.close();
 		    	rbw.close();
 		    	form.list();
 		    	break;
